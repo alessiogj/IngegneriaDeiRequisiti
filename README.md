@@ -3,5 +3,5 @@
 ## Descrizione
 TODO
 
-## Autori
-- **Alessio Gjergji** - [alessiogj](
+## <a id="autori"></a> Autori
+- [Alessio Gjergji](https://github.com/alessiogj)
