@@ -1,12 +1,4 @@
 .vscode
+.DS_Store
 
-Report--01--.xml_bak
-Report--02--.xml_bak
-Report--03--.xml_bak
-Report--04--.xml_bak
-Report--05--.xml_bak
-Report--06--.xml_bak
-Report--07--.xml_bak
-Report--08--.xml_bak
-Report--09--.xml_bak
 Report.xml.lock
