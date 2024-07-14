@@ -1,6 +1,5 @@
 # 🖥️ Sistema di Gestione dei Report Accademici
 > Progetto di Ingegneria dei Requisiti - Università degli Studi di Verona - A.A. 2023/2024
-# Sistema di Gestione Progetti di Ricerca
 
 ## Descrizione del Sistema
 Il sistema di gestione progetti di ricerca è una piattaforma progettata per supportare ricercatori, responsabili scientifici e amministrativi nella gestione e nel monitoraggio di progetti di ricerca. Il sistema facilita la rendicontazione delle ore di lavoro, la segnalazione delle eventuali deviazioni rispetto alle ore contrattuali, la generazione di report conformi e la gestione delle allocazioni progettuali.
@@ -8,20 +7,39 @@ Il sistema di gestione progetti di ricerca è una piattaforma progettata per sup
 ---
 
 ## Sommario
-1. [Obiettivi del Sistema](#obiettivi-del-sistema)
-2. [Salvataggio del Report](#salvataggio-del-report)
-3. [Monitoraggio delle Ore](#monitoraggio-delle-ore)
-4. [Autenticazione](#autenticazione)
-5. [Normativa sulla Privacy](#normativa-sulla-privacy)
-6. [Aggiunta di Progetti](#aggiunta-di-progetti)
-7. [Aggiunta di Work Package](#aggiunta-di-work-package)
-8. [Aggiunta di Task](#aggiunta-di-task)
-9. [Modifica delle Milestone](#modifica-delle-milestone)
-10. [Controllo delle Milestone](#controllo-delle-milestone)
-11. [Notifiche e Avvisi per Report](#notifiche-e-avvisi-per-report)
-12. [Aggiunta degli Utenti nel Progetto](#aggiunta-degli-utenti-nel-progetto)
-13. [Autori](#autori)
+- [Glossario](#glossario)
+- [Obiettivi del Sistema](#obiettivi-del-sistema)
+    - [Salvataggio del Report](#salvataggio-del-report)
+    - [Monitoraggio delle Ore](#monitoraggio-delle-ore)
+    - [Autenticazione](#autenticazione)
+    - [Normativa sulla Privacy](#normativa-sulla-privacy)
+    - [Aggiunta di Progetti](#aggiunta-di-progetti)
+    - [Aggiunta di Work Package](#aggiunta-di-work-package)
+    - [Aggiunta di Task](#aggiunta-di-task)
+    - [Modifica delle Milestone](#modifica-delle-milestone)
+    - [Controllo delle Milestone](#controllo-delle-milestone)
+    - [Notifiche e Avvisi per Report](#notifiche-e-avvisi-per-report)
+    - [Aggiunta degli Utenti nel Progetto](#aggiunta-degli-utenti-nel-progetto)
+- [Requisiti Non Funzionali](#requisiti-non-funzionali)
+- [Autori](#autori)
 
+---
+
+## Glossario
+- **Ricercatore**: Utente che partecipa attivamente al progetto di ricerca eseguendo compiti specifici.
+- **Responsabile Scientifico**: Utente che sovrintende la gestione scientifica e tecnica del progetto.
+- **Amministrativo**: Utente che gestisce gli aspetti amministrativi e organizzativi del progetto.
+- **Work Package**: Un'unità di lavoro all'interno di un progetto che contiene uno o più task.
+- **Task**: Una singola attività all'interno di un work package.
+- **Milestone**: Un punto di controllo nel progetto che indica il completamento di una fase o attività significativa.
+- **Report**: Documento che riporta i risultati, la rendicontazione oraria e le attività svolte durante il progetto di ricerca.
+- **Deviazione**: Differenza tra le ore lavorative effettuate e le ore contrattuali.
+- **Alert**: Notifica visiva che segnala una deviazione rispetto alle ore contrattuali.
+- **Backup**: Copia di sicurezza dei dati per garantire la disponibilità e l'integrità dei dati.
+- **Firma Digitale**: Firma elettronica che garantisce l'autenticità e l'integrità del documento.
+- **Controfirma**: Firma elettronica che attesta l'approvazione del documento.
+- **Consenso**: Autorizzazione dell'utente al trattamento dei dati personali.
+- **Autorizzazione**: Permesso dell'utente per accedere a determinate funzionalità del sistema.
 ---
 
 ## Obiettivi del Sistema
@@ -97,6 +115,51 @@ Il sistema deve fornire un sistema di notifiche e avvisi per informare gli utent
 
 ### Aggiunta degli Utenti nel Progetto
 L'amministrativo deve poter aggiungere nuovi utenti ai progetti. L'amministrativo può assegnare ruoli diversi agli utenti, come ricercatore o responsabile scientifico, in base alle necessità del progetto.
+
+---
+
+## Requisiti Non Funzionali
+1. **Prestazioni**: Il sistema deve supportare almeno 100 utenti simultanei senza degrado delle prestazioni.
+2. **Scalabilità**: Deve essere possibile scalare il sistema per supportare un numero maggiore di utenti e progetti senza necessità di significative modifiche architetturali.
+3. **Sicurezza**: Tutti i dati devono essere crittografati sia a riposo che in transito. L'accesso al sistema deve essere controllato tramite autenticazione a due fattori.
+4. **Affidabilità**: Il sistema deve garantire un uptime del 99.9%, con sistemi di backup e ripristino dei dati in caso di guasto.
+
+---
+
+## Regole di Business
+1. **Creazione di Progetti**: Solo l'amministrativo può creare nuovi progetti. Un progetto deve avere un responsabile scientifico assegnato.
+2. **Gestione dei Work Package**: Il responsabile scientifico può aggiungere e gestire i work package senza necessità di approvazione amministrativa.
+3. **Aggiunta di Task**: Il responsabile scientifico può aggiungere task che richiedono la presenza di almeno un ricercatore.
+4. **Modifica delle Milestone**: Il responsabile scientifico può modificare le milestone in caso di ritardo, riportando il contenuto alla milestone successiva.
+5. **Rendicontazione delle Ore**: Il sistema deve monitorare le ore lavorative e segnalare le deviazioni rispetto alle ore contrattuali.
+6. **Generazione di Report**: Il sistema deve generare report completi di firma digitale e conservarli per 10 anni.
+7. **Gestione degli Utenti**: L'amministrativo può aggiungere nuovi utenti e assegnare ruoli specifici (ricercatore o responsabile scientifico).
+
+---
+
+## Permessi
+- **Creazione Progetti**: Amministrativo
+- **Lettura Progetti**: Amministrativo, Responsabile Scientifico, Ricercatore
+- **Modifica Progetti**: Amministrativo, Responsabile Scientifico
+- **Cancellazione Progetti**: Amministrativo
+- **Creazione Work Package**: Responsabile Scientifico
+- **Lettura Work Package**: Amministrativo, Responsabile Scientifico, Ricercatore
+- **Modifica Work Package**: Responsabile Scientifico
+- **Cancellazione Work Package**: Responsabile Scientifico
+- **Creazione Task**: Responsabile Scientifico
+- **Lettura Task**: Amministrativo, Responsabile Scientifico, Ricercatore
+- **Modifica Task**: Responsabile Scientifico
+- **Cancellazione Task**: Responsabile Scientifico
+- **Modifica Milestone**: Responsabile Scientifico
+- **Lettura Milestone**: Amministrativo, Responsabile Scientifico, Ricercatore
+- **Creazione Report**: Amministrativo, Responsabile Scientifico
+- **Lettura Report**: Amministrativo, Responsabile Scientifico, Ricercatore
+- **Modifica Report**: Amministrativo, Responsabile Scientifico
+- **Cancellazione Report**: Amministrativo
+- **Creazione Utenti**: Amministrativo
+- **Lettura Utenti**: Amministrativo, Responsabile Scientifico
+- **Modifica Utenti**: Amministrativo
+- **Cancellazione Utenti**: Amministrativo
 
 ---
 
